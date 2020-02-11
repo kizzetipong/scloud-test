@@ -29,6 +29,7 @@ const ScrumBoard = ({ configuration, updateConfig, urlParam, socket}) => {
 
   useEffect(() => {
     if (socket && process.browser) {
+      console.log('Subscribe configuration data from socket')
       socket.emit('join', 'configuration')
       socket.on('data', dataHandler)
       return () => socket.off('data', dataHandler)
@@ -36,6 +37,7 @@ const ScrumBoard = ({ configuration, updateConfig, urlParam, socket}) => {
   }, [socket])
 
   const dataHandler = (configuration) => {
+    console.log('Get data from socket')
     setLoading(false)
     updateConfig(configuration)
   }
@@ -89,7 +91,7 @@ const ScrumBoard = ({ configuration, updateConfig, urlParam, socket}) => {
             })
         }
       </Box>
-    </React.Fragment>      
+    </React.Fragment>
   )
 }
 

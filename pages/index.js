@@ -14,14 +14,14 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-const Index = ({ pathname, socket }) => {
+const Index = ({ socket, query }) => {
   const classes = useStyles()
 
-  //TODO: Support Url Parameters for overridding configuration
-  const urlParam = {}
+  const { disableDivider , color = 'fecf00' } = query
+  const urlParam = { disableDivider: disableDivider && disableDivider !== 'false' }
 
   return (
-    <div id='app-root' className={classes.fullContainer}>
+    <div id='app-root' className={classes.fullContainer} style={color ? { backgroundColor: `#${color}` } : {}}>
       <Container classes={{ root: classes.fullHeight}} maxWidth='xl'>
         <Scrumboard urlParam={urlParam} socket={socket} />
       </Container>

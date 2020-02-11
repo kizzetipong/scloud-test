@@ -15,13 +15,13 @@ class MyApp extends App {
 
   static async getInitialProps ({ Component, ctx }) {
     let pageProps = {}
-    const pathname = ctx.pathname
+    const query = ctx.query
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }
 
-    return { pageProps, pathname }
+    return { pageProps, query }
   }
 
   componentDidMount() {
@@ -34,10 +34,10 @@ class MyApp extends App {
   }
 
   render () {
-    const { Component, pageProps, pathname } = this.props
+    const { Component, pageProps, query } = this.props
     return (
       <Provider store={ getStore() }>
-        <Component {...pageProps} pathname={pathname} socket={this.state.socket} />
+        <Component {...pageProps} query={query} socket={this.state.socket} />
       </Provider>
     )
   }
