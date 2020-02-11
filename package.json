@@ -16,6 +16,7 @@
   "dependencies": {
     "@material-ui/core": "4.0.1",
     "@material-ui/icons": "4.0.1",
+    "@material-ui/lab": "^4.0.0-alpha.42",
     "@material-ui/styles": "4.0.1",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
