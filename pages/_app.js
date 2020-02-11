@@ -1,16 +1,16 @@
 import App from 'next/app'
 import React from 'react'
 import { Provider } from 'react-redux'
-import io from 'socket.io-client';
+import io from 'socket.io-client'
 import { getStore } from '../modules/redux-config'
 import withRoot from '../utils/withRoot'
 
 class MyApp extends App {
   constructor (props) {
-    super(props);
+    super(props)
     this.state = {
       socket: null,
-    };
+    }
   }
 
   static async getInitialProps ({ Component, ctx }) {
@@ -25,12 +25,12 @@ class MyApp extends App {
   }
 
   componentDidMount() {
-    const socket = io();
-    this.setState({ socket });
+    const socket = io()
+    this.setState({ socket })
   }
 
   componentWillUnmount() {
-    this.state.socket.close();
+    this.state.socket.close()
   }
 
   render () {

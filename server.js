@@ -1,7 +1,7 @@
 const express = require('express')
 const next = require('next')
 const http = require('http')
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')
 const apiRoutes = require('./server/routers/api')
 const opensocket = require('./server/socket/socket')
 
@@ -14,8 +14,8 @@ app.prepare()
   .then(() => {
     const server = express()
 
-    var httpserver = http.createServer(server, { 'log level': 0, 'match origin protocol': 'yes' });
-    server.use(bodyParser.json());
+    var httpserver = http.createServer(server, { 'log level': 0, 'match origin protocol': 'yes' })
+    server.use(bodyParser.json())
 
     opensocket(httpserver)
 

@@ -7,14 +7,14 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  const { params } = req;
-  const statuscolumn = model.find(params.id);
+  const { params } = req
+  const statuscolumn = model.find(params.id)
   if (statuscolumn) {
-    res.json(statuscolumn);
+    res.json(statuscolumn)
   } else {
-    res.status(404).send(`statuscolumn id ${params.id} is not found`);
+    res.status(404).send(`statuscolumn id ${params.id} is not found`)
   }
-});
+})
 
 router.put('/:id', (req, res) => {
   const { params, body } = req

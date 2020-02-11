@@ -1,4 +1,4 @@
-const _ = require('lodash');
+const _ = require('lodash')
 
 const STATUSCOLUMN_INITIAL = [
   {
@@ -20,20 +20,20 @@ const STATUSCOLUMN_INITIAL = [
 ]
 
 module.exports = (() => {
-  let instance;
+  let instance
 
   const init = () => {
-    let inMemoryModel = STATUSCOLUMN_INITIAL; // TODO: Connect to real database
+    let inMemoryModel = STATUSCOLUMN_INITIAL // TODO: Connect to real database
     const thisObj = {
       getAll: () => inMemoryModel,
       find: (id) => _.find(inMemoryModel, { id }),
       add: (id, header) => {
         if (thisObj.find(id)) {
-          return null;
+          return null
         }
-        const column = { id, header };
-        inMemoryModel = [...inMemoryModel, column];
-        return inMemoryModel;
+        const column = { id, header }
+        inMemoryModel = [...inMemoryModel, column]
+        return inMemoryModel
       },
       update: (id, header) => {
         const updateColumnIdx = _.findIndex(inMemoryModel, { id })
@@ -54,15 +54,15 @@ module.exports = (() => {
         }
         return false
       },
-    };
+    }
 
-    return thisObj;
-  };
+    return thisObj
+  }
 
   return {
     getInstance: () => {
-      if (!instance) { instance = init(); }
-      return instance;
+      if (!instance) { instance = init() }
+      return instance
     },
-  };
-})();
+  }
+})()

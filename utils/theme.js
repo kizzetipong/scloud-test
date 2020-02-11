@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
-import indigo from '@material-ui/core/colors/indigo';
-import amber from '@material-ui/core/colors/amber';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
+import indigo from '@material-ui/core/colors/indigo'
+import amber from '@material-ui/core/colors/amber'
 
 const theme = responsiveFontSizes(createMuiTheme({
   typography: {
@@ -23,6 +23,6 @@ const theme = responsiveFontSizes(createMuiTheme({
   },
   overrides: {
   },
-}));
+}))
 
-export default theme;
+export default theme
